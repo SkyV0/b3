@@ -33,7 +33,7 @@ const Sidebar: FC<SidebarProps> = ({
           <a
             className={`flex items-center gap-2 ${
               !router.query.following
-                ? "fill-pink text-pink"
+                ? "fill-violet text-violet"
                 : "fill-black text-black"
             }`}
           >
@@ -45,7 +45,7 @@ const Sidebar: FC<SidebarProps> = ({
           <a
             className={`flex items-center gap-2 ${
               router.query.following
-                ? "fill-pink text-pink"
+                ? "fill-violet text-violet"
                 : "fill-black text-black"
             }`}
           >
@@ -140,7 +140,7 @@ const Sidebar: FC<SidebarProps> = ({
           <p>Creator Portal</p>
           <p>Community Guidelines</p>
         </div>
-        <span>© 2022 TopTop</span>
+        <span>© 2022 Just B3</span>
       </div>
     </div>
   );

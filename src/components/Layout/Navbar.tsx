@@ -37,7 +37,7 @@ const Navbar: FC = () => {
           <Link href="/">
             <a className="flex items-end gap-1">
               <Image src="/logo.png" alt="Logo" width={30} height={30} />
-              <span className="text-2xl leading-[1] font-bold">TopTop</span>
+              <span className="text-2xl leading-[1] font-bold">Just B3</span>
             </a>
           </Link>
           <form
@@ -68,7 +68,7 @@ const Navbar: FC = () => {
             </Link>
             {status === "unauthenticated" ? (
               <Link href="/sign-in">
-                <a className="rounded h-9 px-6 bg-pink text-white flex items-center hover:brightness-105 transition">
+                <a className="rounded h-9 px-6 bg-violet text-white flex items-center hover:brightness-105 transition">
                   Log In
                 </a>
               </Link>
