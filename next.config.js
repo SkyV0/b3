@@ -13,7 +13,7 @@ const nextConfig = {
     },
   },
   images: {
-    domains: [],
+    domains: ["lh3.googleusercontent.com", "platform-lookaside.fbsbx.com"],
     minimumCacheTTL: 9999999,
   },
 };

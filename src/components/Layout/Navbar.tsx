@@ -6,12 +6,29 @@ import { FC, FormEvent, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
-
+import {
+  Avatar,
+  Box,
+  Button,
+  ButtonGroup,
+  Container,
+  Divider,
+  Flex,
+  HStack,
+  Icon,
+  IconButton,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  useBreakpointValue,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import ClickAwayListener from "../Shared/ClickAwayListener";
+import { ColorModeSwitcher } from "../Home/ColorModeSwitcher";
 
 const Navbar: FC = () => {
   const router = useRouter();
-
+const isDesktop = useBreakpointValue({ base: false, lg: true })
   const { data: session, status } = useSession();
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
@@ -31,12 +48,13 @@ const Navbar: FC = () => {
   };
 
   return (
-    <nav className="border-b sticky top-0 z-20 bg-white">
-      <div className="flex justify-center mx-4">
-        <div className="w-full max-w-[1150px] flex justify-between items-center h-[60px]">
+ <Box as="section" pb={{ base: '1' }}>
+      <Box as="nav" bg="bg-surface" boxShadow={useColorModeValue('sm', 'sm-dark')}>
+        <Container>
+          <Flex justify="space-between" py={{ base: '3', lg: '4' }}>
           <Link href="/">
-            <a className="flex items-end gap-1">
-              <Image src="/logo.png" alt="Logo" width={30} height={30} />
+            <a className="flex items-end gap-6">
+              <Image src="/logo.png" alt="Logo" width={50} height={50} />
               <span className="text-2xl leading-[1] font-bold">Just B3</span>
             </a>
           </Link>
@@ -60,12 +78,15 @@ const Navbar: FC = () => {
             </button>
           </form>
           <div className="flex items-center gap-3">
+              <ColorModeSwitcher />
+              <Button>
             <Link href={status === "authenticated" ? "/upload" : "/sign-in"}>
-              <a className="border rounded flex items-center gap-2 h-9 px-3 border-gray-200 bg-white hover:bg-gray-100 transition">
+              <a>
                 <AiOutlinePlus className="w-5 h-5" />
-                <span>Upload</span>
               </a>
-            </Link>
+                </Link>
+                Upload
+                </Button>
             {status === "unauthenticated" ? (
               <Link href="/sign-in">
                 <a className="rounded h-9 px-6 bg-violet text-white flex items-center hover:brightness-105 transition">
@@ -115,10 +136,11 @@ const Navbar: FC = () => {
             ) : (
               <></>
             )}
-          </div>
-        </div>
-      </div>
-    </nav>
+              </div>
+          </Flex>
+              </Container>
+              </Box>
+      </Box>
   );
 };
 
