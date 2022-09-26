@@ -29,10 +29,10 @@ import {
     FormErrorMessage,
     FormHelperText
 } from '@chakra-ui/react';
-import {NextChakraLink} from "./NextChakraLink";
 import ClickAwayListener from "../Shared/ClickAwayListener";
 import { ColorModeSwitcher } from "../Home/ColorModeSwitcher";
 import {HamburgerIcon, SmallCloseIcon, AtSignIcon} from '@chakra-ui/icons';
+import { NextChakraLink } from "../Layout/NextChakraLink";
 
 const Navbar: FC = () => {
   const router = useRouter();
@@ -82,7 +82,9 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
               )}
                 <ColorModeSwitcher />
               <Button color='#a78bfa' width='60' icon='AiOutlinePlus' href={status === "authenticated" ? "/upload" : "/sign-in"}>
+                <NextChakraLink href={status === "authenticated" ? "/upload" : "/sign-in"}>
                 Upload
+                </NextChakraLink>
                 </Button>
                 {status === "unauthenticated" ? (
               <Link href="/sign-in">

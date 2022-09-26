@@ -31,11 +31,16 @@ const Sidebar: FC<SidebarProps> = ({
     <Flex
       flex="1"
       color="on-accent"
+      position={'absolute'}
+      left='0'
+      top='12'
       maxW={{ base: 'full', sm: 'xs' }}
+      py={{ base: '6', sm: '8' }}
+      px={{ base: '4', sm: '6' }}
     >
       <Stack justify="space-between" spacing="1">
         <Stack spacing={{ base: '5', sm: '6' }} shouldWrapChildren>
-    <div className="w-[48px] border-r lg:border-none lg:w-[348px] h-[calc(100vh-60px)] sticky top-[60px] overflow-y-auto flex-shrink-0 py-5">
+    <div className="w-[48px] border-r lg:border-none lg:w-[140px] h-[calc(100vh-60px)] sticky top-[60px] overflow-y-auto flex-shrink-0 py-5">
       <div className="flex flex-col items-stretch gap-5 [&_svg]:h-7 [&_svg]:w-7 font-semibold pb-6 border-b">
         <Link href="/">
           <a
