@@ -6,7 +6,7 @@ import { FC } from "react";
 import { AiFillHome, AiOutlineHome } from "react-icons/ai";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiUserShared2Fill, RiUserShared2Line } from "react-icons/ri";
-
+import {Flex, Stack} from "@chakra-ui/react";
 import { formatAccountName } from "@/utils/text";
 
 interface User {
@@ -27,6 +27,14 @@ const Sidebar: FC<SidebarProps> = ({
   const session = useSession();
 
   return (
+    <Flex as="section" minH="100vh" bg="bg-canvas">
+    <Flex
+      flex="1"
+      color="on-accent"
+      maxW={{ base: 'full', sm: 'xs' }}
+    >
+      <Stack justify="space-between" spacing="1">
+        <Stack spacing={{ base: '5', sm: '6' }} shouldWrapChildren>
     <div className="w-[48px] border-r lg:border-none lg:w-[348px] h-[calc(100vh-60px)] sticky top-[60px] overflow-y-auto flex-shrink-0 py-5">
       <div className="flex flex-col items-stretch gap-5 [&_svg]:h-7 [&_svg]:w-7 font-semibold pb-6 border-b">
         <Link href="/">
@@ -115,34 +123,11 @@ const Sidebar: FC<SidebarProps> = ({
           ))}
         </div>
       )}
-
-      <div className="[&_p]:cursor-pointer [&_p:hover]:underline text-xs leading-[1.2] mt-5 text-zinc-400 flex-col items-stretch gap-4 hidden lg:flex">
-        <div className="flex flex-wrap gap-2">
-          <p>About</p>
-          <p>Newsroom</p>
-          <p>Store</p>
-          <p>Contact</p>
-          <p>Carrers</p>
-          <p>ByteDance</p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <p>TikTik for Good</p>
-          <p>Advertise</p>
-          <p>Developers</p>
-          <p>Transparency</p>
-          <p>TikTik Rewards</p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <p>Help</p>
-          <p>Safety</p>
-          <p>Terms</p>
-          <p>Privacy</p>
-          <p>Creator Portal</p>
-          <p>Community Guidelines</p>
-        </div>
-        <span>© 2022 Just B3</span>
-      </div>
     </div>
+  </Stack>
+      </Stack>
+    </Flex>
+  </Flex>
   );
 };
 
