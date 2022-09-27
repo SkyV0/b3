@@ -61,11 +61,15 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
         <Container>
           <Flex justify="space-between" py={{ base: '3', lg: '4' }}> 
           <Box position="absolute" left="2" top="2" >
+            <NextChakraLink href='/' >
             <Image src="/logo.png" alt="Logo" width={50} height={50} />
+            </NextChakraLink>
             </Box>
             <Box sx={{ '--my-color': '#a78bfa' }}>
   <Heading color='var(--my-color)' size='md'>
+  <NextChakraLink href='/' >
     Just B3
+    </NextChakraLink>
   </Heading>
 </Box>
               <HStack spacing="4">   
