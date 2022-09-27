@@ -47,20 +47,22 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
 
   return (
  <Box as="section" pb={{ base: '2' }}>
-      <Box as="nav" bg="bg-surface" boxShadow={useColorModeValue('sm', 'sm-dark')}>
+      <Box as="nav" bg="bg-surface" maxHeight="20" boxShadow={useColorModeValue('sm', 'sm-dark')}>
         <Container>
           <Flex justify="space-between" py={{ base: '3', lg: '4' }}> 
           <Box position="absolute" left="2" top="2" >
-            <NextChakraLink href='/' >
-            <Image src="/logo.png" alt="Logo" width={50} height={50} />
+              <NextChakraLink href='/' >
+                <Box backgroundColor={'black'} borderRadius='4'>
+                  <Image src="/logo.png" alt="Logo" width={50} height={50} />
+                  </Box>
             </NextChakraLink>
             </Box>
             <Box sx={{ '--my-color': '#a78bfa' }}>
-  <Heading color='var(--my-color)' size='md'>
-  <NextChakraLink href='/' >
+  {/* <Heading color='var(--my-color)' size='md'>
+  <NextChakraLink href='/' marginLeft='10' >
     Just B3
     </NextChakraLink>
-  </Heading>
+  </Heading> */}
 </Box>
               <HStack spacing="4">   
               {isDesktop && (
@@ -94,8 +96,8 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
                       onClick={() => setIsDropdownOpened(!isDropdownOpened)}
                     >
                       <Image
-                        width={80}
-                        height={80}
+                        width={50}
+                        height={50}
                         className="rounded-full"
                         src={session.user?.image!}
                         alt="Avatar"
