@@ -6,7 +6,7 @@ import { FC } from "react";
 import { AiFillHome, AiOutlineHome } from "react-icons/ai";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiUserShared2Fill, RiUserShared2Line } from "react-icons/ri";
-import {Flex, Stack} from "@chakra-ui/react";
+import {Flex, Stack, Text} from "@chakra-ui/react";
 import { formatAccountName } from "@/utils/text";
 
 interface User {
@@ -34,13 +34,13 @@ const Sidebar: FC<SidebarProps> = ({
       position={'absolute'}
       left='0'
       top='12'
-      maxW={{ base: 'full', sm: 'xs' }}
+      maxW={{ base: '50px', sm: 'xs' }}
       py={{ base: '6', sm: '8' }}
       px={{ base: '4', sm: '6' }}
     >
       <Stack justify="space-between" spacing="1">
         <Stack spacing={{ base: '5', sm: '6' }} shouldWrapChildren>
-    <div className="w-[48px] border-r lg:border-none lg:w-[140px] h-[calc(100vh-60px)] sticky top-[60px] overflow-y-auto flex-shrink-0 py-5">
+    <div className="w-[48px] border-r lg:border-none lg:w-[170px] h-[calc(100vh-60px)] sticky top-[60px] overflow-y-auto flex-shrink-0 py-5">
       <div className="flex flex-col items-stretch gap-5 [&_svg]:h-7 [&_svg]:w-7 font-semibold pb-6 border-b">
         <Link href="/">
           <a
@@ -74,7 +74,7 @@ const Sidebar: FC<SidebarProps> = ({
 
       {suggestedAccounts.length > 0 && (
         <div className="flex flex-col items-stretch gap-3 py-4 border-b">
-          <p className="text-sm hidden lg:block">Suggested Accounts</p>
+          <Text color='black'>Suggested Accounts</Text>
           {suggestedAccounts.map((account) => (
             <Link href={`/user/${account.id}`} key={account.id}>
               <a className="flex items-center gap-3">
@@ -85,15 +85,15 @@ const Sidebar: FC<SidebarProps> = ({
                   src={account.image!}
                   alt=""
                 />
-
                 <div className="hidden lg:block">
                   <p className="relative leading-[1]">
                     <span className="font-semibold text-sm">
+                    <Text color='black'>
                       {formatAccountName(account.name!)}
+                      </Text>
                     </span>
                     <BsFillCheckCircleFill className="absolute w-[14px] h-[14px] right-[-20px] top-1 fill-[#20D5EC]" />
                   </p>
-                  <p className="font-light text-xs">{account.name}</p>
                 </div>
               </a>
             </Link>

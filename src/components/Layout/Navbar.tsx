@@ -81,17 +81,17 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
         </InputGroup>
               )}
                 <ColorModeSwitcher />
-              <Button color='#a78bfa' width='60' icon='AiOutlinePlus' href={status === "authenticated" ? "/upload" : "/sign-in"}>
+              <Button color='#a78bfa' width='60' href={status === "authenticated" ? "/upload" : "/sign-in"}>
                 <NextChakraLink href={status === "authenticated" ? "/upload" : "/sign-in"}>
                 Upload
                 </NextChakraLink>
                 </Button>
-                {status === "unauthenticated" ? (
-              <Link href="/sign-in">
-                <a className="rounded h-9 px-6 bg-violet text-white flex items-center hover:brightness-105 transition">
+                {status === "unauthenticated" ? (   
+                  <Button color='#a78bfa' width='60' href="/sign-in">
+              <NextChakraLink href="/sign-in">
                   Log In
-                </a>
-              </Link>
+              </NextChakraLink>
+              </Button>
             ) : status === "authenticated" ? (
               <ClickAwayListener onClickAway={() => setIsDropdownOpened(false)}>
                 {(ref) => (
