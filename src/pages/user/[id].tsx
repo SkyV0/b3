@@ -10,14 +10,12 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { BsPlay } from "react-icons/bs";
-import { NextChakraLink } from "@/components/Layout/NextChakraLink";
 import Navbar from "@/components/Layout/Navbar";
 import Meta from "@/components/Shared/Meta";
 import { prisma } from "@/server/db/client";
 import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
-import { Button } from '@chakra-ui/react'
 import { authOptions } from "../api/auth/[...nextauth]";
 
 const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
@@ -45,7 +43,7 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
     <>
       <Meta
         title={`${user?.name} (@${formatAccountName(user?.name!)}) | Just B3`}
-        description={`${user?.name} on TopTop`}
+        description={`${user?.name} on Just B3`}
         image={user?.image!}
       />
 
@@ -78,7 +76,7 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
                       className={`py-1 px-3 rounded text-sm mt-2 ${
                         isCurrentlyFollowed ?? user?.followedByMe
                           ? "border hover:bg-[#F8F8F8] transition"
-                          : "border border-pink text-pink hover:bg-[#FFF4F5] transition"
+                          : "border border-violet text-violet hover:bg-[#FFF4F5] transition"
                       }`}
                     >
                       {isCurrentlyFollowed ?? user?.followedByMe

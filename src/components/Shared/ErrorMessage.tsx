@@ -1,8 +1,12 @@
-import React from 'react';
 import { Alert } from 'reactstrap';
+import React, { FC, ReactNode } from "react";
 
-const ErrorMessage = ({ children }) => (
-  <Alert color="danger" fade={false} data-testid="error">
+interface Props {
+    children?: ReactNode
+    // any props that come into the component
+}
+const ErrorMessage: FC<Props> = ({ children, ...props }) => (
+  <Alert color="danger" fade={false} data-testid="error"{...props}>
     {children}
   </Alert>
 );

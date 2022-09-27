@@ -11,7 +11,8 @@ import { fetchWithProgress } from "@/utils/fetch";
 
 import { trpc } from "../utils/trpc";
 import { authOptions } from "./api/auth/[...nextauth]";
-import { Flex, Box, Input, Text, Button, useColorModeValue, Container, Stack, VStack, HStack, StackDivider } from "@chakra-ui/react";
+import { Box, Input, Text, Button, useColorModeValue, Stack, VStack, BoxProps } from "@chakra-ui/react";
+
 const Upload: NextPage = (props: BoxProps) => {
   const router = useRouter();
 

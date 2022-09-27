@@ -1,4 +1,3 @@
-// https://www.tunglt.com/2018/11/bo-dau-tieng-viet-javascript-es6/
 export const formatAccountName = (name: string) =>
   name
     ? name

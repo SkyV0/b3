@@ -182,7 +182,7 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
                     className={`py-1 px-3 rounded text-sm mt-2 ${
                       isCurrentlyFollowed ?? video.followedByMe
                         ? "border hover:bg-[#F8F8F8] transition"
-                        : "border border-pink text-pink hover:bg-[#FFF4F5] transition"
+                        : "border border-violet text-violet hover:bg-[#FFF4F5] transition"
                     }`}
                   >
                     {isCurrentlyFollowed ?? video.followedByMe
@@ -208,7 +208,7 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
                   >
                     <AiFillHeart
                       className={`w-5 h-5 ${
-                        isCurrentlyLiked ? "fill-pink" : ""
+                        isCurrentlyLiked ? "fill-violet" : ""
                       }`}
                     />
                   </button>
@@ -329,7 +329,7 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
               className={`transition ${
                 postCommentMutation.isLoading || !inputValue.trim()
                   ? ""
-                  : "text-pink"
+                  : "text-violet"
               }`}
             >
               {postCommentMutation.isLoading ? "Posting..." : "Post"}
