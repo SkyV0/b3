@@ -11,9 +11,8 @@ import { fetchWithProgress } from "@/utils/fetch";
 
 import { trpc } from "../utils/trpc";
 import { authOptions } from "./api/auth/[...nextauth]";
-import { Box, Input, Text, Button, useColorModeValue, Stack, VStack, BoxProps } from "@chakra-ui/react";
 
-const Upload: NextPage = (props: BoxProps) => {
+const Upload: NextPage = () => {
   const router = useRouter();
 
   const uploadMutation = trpc.useMutation("video.create");
@@ -190,23 +189,16 @@ const Upload: NextPage = (props: BoxProps) => {
 
   return (
     <>
-      <Meta title="Upload | Just B3" description="Upload" image="/favicon.png" />
-      <Navbar />
-      <Box
-    as="form"
-    bg="bg-surface"
-    mx="40"
-    mt="10"
-    boxShadow={useColorModeValue('sm', 'sm-dark')}
-    borderRadius="lg"
-    {...props}
-  >
-    <Stack spacing="5" px={{ base: '4', md: '6' }} py={{ base: '5', md: '6' }}>
-      <Stack spacing="6" direction={{ base: 'column', md: 'row' }}>
-        <VStack spacing="20" pt="8">
-        <Text className="text-2xl font-bold">Upload video</Text>
-            <Box flexShrink={0}>
-                {videoURL ? (
+      <Meta title="Upload | TopTop" description="Upload" image="/favicon.png" />
+      <div className="min-h-screen flex flex-col items-stretch">
+        <Navbar />
+        <div className="flex justify-center mx-2 flex-grow bg-gray-1">
+          <div className="w-full max-w-[1000px] p-8 bg-white my-4">
+            <h1 className="text-2xl font-bold">Upload video</h1>
+            <p className="text-gray-400 mt-2">Post a video to your account</p>
+
+            <div className="flex items-start mt-10 gap-4">
+              {videoURL ? (
                 <video
                   className="w-[250px] h-[340px] object-contain"
                   muted
@@ -216,39 +208,38 @@ const Upload: NextPage = (props: BoxProps) => {
                   playsInline
                 />
               ) : (
-                <Button
+                <button
                   onDrop={dropFile}
                   onDragLeave={dragBlur}
                   onDragEnter={dragFocus}
                   onDragOver={dragFocus}
                   onClick={() => inputRef.current?.click()}
                   className={`w-[250px] flex-shrink-0 border-2 border-gray-300 rounded-md border-dashed flex flex-col items-center p-8 cursor-pointer hover:border-red-1 transition ${
-                    isFileDragging ? "border-violet-1" : ""
+                    isFileDragging ? "border-red-1" : ""
                   }`}
                 >
                   <BsFillCloudUploadFill className="fill-[#B0B0B4] w-10 h-10" />
-                  <Text className="font-semibold mt-4 mb-2">
+                  <h1 className="font-semibold mt-4 mb-2">
                     Select video to upload
-                  </Text>
-                  <Text className="text-gray-500 text-sm">
+                  </h1>
+                  <p className="text-gray-500 text-sm">
                     Or drag and drop a file
-                  </Text>
+                  </p>
 
-                  <Box className="flex flex-col items-center text-gray-400 my-4 gap-1 text-sm">
+                  <div className="flex flex-col items-center text-gray-400 my-4 gap-1 text-sm">
                     <p>MP4 or WebM</p>
                     <p>Any resolution</p>
                     <p>Any duration</p>
                     <p>Less than 200MB</p>
-                  </Box>
-                 <Box>
-                  <Button className="w-full bg-violet Text-white p-2">
+                  </div>
+
+                  <div className="w-full bg-red-1 text-white p-2">
                     Select file
-                  </Button>
-                  </Box>
-                </Button>
+                  </div>
+                </button>
               )}
 
-              <Input
+              <input
                 ref={inputRef}
                 type="file"
                 hidden
@@ -260,19 +251,12 @@ const Upload: NextPage = (props: BoxProps) => {
                   }
                 }}
               />
-              </Box>
-              </VStack>
-            <Box
-    borderRadius="lg"
-    flex="1"
-    {...props}>
-      <Stack className="flex-end">
-                 <label className="block font-medium" htmlFor="caption">
-                  <Text>
+
+              <div className="flex-grow">
+                <label className="block font-medium" htmlFor="caption">
                   Caption
-                  </Text>
                 </label>
-                <Input
+                <input
                   type="text"
                   id="caption"
                   className="p-2 w-full border border-gray-2 mt-1 mb-3 outline-none focus:border-gray-400 transition"
@@ -282,7 +266,7 @@ const Upload: NextPage = (props: BoxProps) => {
                   }}
                 />
 
-                <Text className="font-medium">Cover</Text>
+                <p className="font-medium">Cover</p>
                 <div className="p-2 border border-gray-2 h-[170px] mb-2">
                   {coverImageURL ? (
                     <img
@@ -294,7 +278,9 @@ const Upload: NextPage = (props: BoxProps) => {
                     <div className="bg-gray-1 h-full w-[100px]"></div>
                   )}
                 </div>
-                  <Button
+
+                <div className="flex flex-wrap gap-3">
+                  <button
                     disabled={isLoading}
                     onClick={() => {
                       if (inputRef.current?.value) inputRef.current.value = "";
@@ -306,8 +292,8 @@ const Upload: NextPage = (props: BoxProps) => {
                     className="py-3 min-w-[170px] border border-gray-2 bg-white hover:bg-gray-100 transition"
                   >
                     Discard
-                  </Button>
-                  <Button
+                  </button>
+                  <button
                     onClick={() => handleUpload()}
                     disabled={
                       !inputValue.trim() ||
@@ -322,12 +308,13 @@ const Upload: NextPage = (props: BoxProps) => {
                       <span className="w-4 h-4 border-2 border-gray-500 border-t-transparent rounded-full animate-spin"></span>
                     )}
                     Post
-                  </Button>
-    </Stack>
-    </Box>
-    </Stack>
-    </Stack>
-  </Box>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
