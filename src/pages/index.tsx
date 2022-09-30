@@ -24,8 +24,8 @@ const Home: NextPage<HomeProps> = ({
   return (
     <>
       <Meta
-        title="Just B3 - Make Your Day"
-        description="Just B3 - trends start here"
+        title="Just B3 - B3 Known, B3 Loved, B3 You"
+        description="Just B3 - Just B3"
         image="/favicon.png"
       />
       <Navbar />
