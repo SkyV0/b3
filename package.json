@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --data-proxy"
   },
   "dependencies": {
     "@chakra-ui/color-mode": "^2.1.8",
