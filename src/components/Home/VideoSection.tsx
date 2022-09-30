@@ -92,7 +92,7 @@ const VideoSection: FC<VideoSectionProps> = ({ video, refetch, origin }) => {
   };
 
   return (
-    <div key={video.id} className="flex items-start p-2 lg:p-4 gap-3">
+    <div key={video.id} className="flex items-start p-2 lg:p-4 gap-10">
       <Link href={`/user/${video.user.id}`}>
         <a className="flex-shrink-0 rounded-full">
           <Image
