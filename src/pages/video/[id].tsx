@@ -408,7 +408,7 @@ export const getServerSideProps = async ({
         },
         session,
         href: `${
-          req.headers.host?.includes("localhost") ? "http" : "https"
+          req.headers.host?.includes("b3-skyv0.vercel.app") ? "http" : "https"
         }://${req.headers.host}/video/${id}`,
         title: `${video.user.name} on Just B3`,
       },
