@@ -3,30 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import { FC, FormEvent, useState } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
 import { BiSearch, BiUser } from "react-icons/bi";
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  HStack,
-  Icon,
-  Input,
-  Text,
-  Heading,
-  InputGroup,
-  InputLeftElement,
-  useBreakpointValue,
-  useColorModeValue
-} from '@chakra-ui/react';
+import { IoLogOutOutline } from "react-icons/io5";
+
 import ClickAwayListener from "../Shared/ClickAwayListener";
-import { ColorModeSwitcher } from "../Home/ColorModeSwitcher";
-import { SmallCloseIcon, AtSignIcon} from '@chakra-ui/icons';
-import { NextChakraLink } from "../Layout/NextChakraLink";
 
 const Navbar: FC = () => {
   const router = useRouter();
-const isDesktop = useBreakpointValue({ base: false, lg: true })
+
   const { data: session, status } = useSession();
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
@@ -46,48 +31,47 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
   };
 
   return (
- <Box as="section" pb={{ base: '2' }}>
-      <Box as="nav" bg="bg-surface" maxHeight="20" boxShadow={useColorModeValue('sm', 'sm-dark')}>
-        <Container>
-          <Flex justify="space-between" py={{ base: '3', lg: '4' }}> 
-          <Box position="absolute" left="2" top="2" >
-              <NextChakraLink href='/' >
-                <Box backgroundColor={'black'} borderRadius='4'>
-                  <Image src="/logo.png" alt="Logo" width={50} height={50} />
-                  </Box>
-            </NextChakraLink>
-            </Box>
-            <Box sx={{ '--my-color': '#a78bfa' }}>
-  {/* <Heading color='var(--my-color)' size='md'>
-  <NextChakraLink href='/' marginLeft='10' >
-    Just B3
-    </NextChakraLink>
-  </Heading> */}
-</Box>
-              <HStack spacing="4">   
-              {isDesktop && (
-          <InputGroup maxW={{ sm: 'md' }} justifySelf="center">
-          <InputLeftElement pointerEvents="none">
-            <Icon as={BiSearch} color="muted" boxSize="5" />
-          </InputLeftElement>
-          <Input     type="text"
-              placeholder="Search..."
+    <nav className="border-b sticky top-0 z-20 bg-white">
+      <div className="flex justify-center mx-4">
+        <div className="w-full max-w-[1150px] flex justify-between items-center h-[60px]">
+          <Link href="/">
+            <a className="flex items-end gap-1">
+              <Image src="/logo.png" alt="Logo" width={30} height={30} />
+              <span className="text-2xl leading-[1] font-bold">Just B3</span>
+            </a>
+          </Link>
+          <form
+            onSubmit={handleFormSubmit}
+            className="relative w-[360px] h-[46px] hidden md:block"
+          >
+            <input
+              className="w-full h-full outline-none bg-gray-1 rounded-full pl-4 pr-14 border border-transparent focus:border-gray-400 transition"
+              type="text"
+              placeholder="Search accounts and videos..."
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)} />
-        </InputGroup>
-              )}
-                <ColorModeSwitcher />
-              <Button color='#a78bfa' width='60'>
-                <NextChakraLink href={status === "authenticated" ? "/upload" : "/sign-in"}>
-                Upload
-                </NextChakraLink>
-                </Button>
-                {status === "unauthenticated" ? (   
-                  <Button color='#a78bfa' width='60'>
-              <NextChakraLink href="/sign-in">
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <div className="absolute h-8 w-[1px] right-12 top-1/2 -translate-y-1/2 bg-gray-300"></div>
+            <button
+              type="submit"
+              className="absolute right-3 top-1/2 -translate-y-1/2"
+            >
+              <BiSearch className="fill-gray-400 w-6 h-6" />
+            </button>
+          </form>
+          <div className="flex items-center gap-3">
+            <Link href={status === "authenticated" ? "/upload" : "/sign-in"}>
+              <a className="border rounded flex items-center gap-2 h-9 px-3 border-gray-200 bg-white hover:bg-gray-100 transition">
+                <AiOutlinePlus className="w-5 h-5" />
+                <span>Upload</span>
+              </a>
+            </Link>
+            {status === "unauthenticated" ? (
+              <Link href="/sign-in">
+                <a className="rounded h-9 px-6 bg-violet text-white flex items-center hover:brightness-105 transition">
                   Log In
-              </NextChakraLink>
-              </Button>
+                </a>
+              </Link>
             ) : status === "authenticated" ? (
               <ClickAwayListener onClickAway={() => setIsDropdownOpened(false)}>
                 {(ref) => (
@@ -96,14 +80,14 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
                       onClick={() => setIsDropdownOpened(!isDropdownOpened)}
                     >
                       <Image
-                        width={50}
-                        height={50}
+                        width={36}
+                        height={36}
                         className="rounded-full"
                         src={session.user?.image!}
                         alt="Avatar"
                       />
                     </button>
-                    <Box
+                    <div
                       className={`absolute shadow-[rgb(0_0_0_/_12%)_0px_4px_16px] bg-white top-[120%] right-0 py-2 flex flex-col items-stretch [&>*]:whitespace-nowrap rounded-md transition-all z-50 ${
                         isDropdownOpened
                           ? "opacity-100 visible"
@@ -112,30 +96,29 @@ const isDesktop = useBreakpointValue({ base: false, lg: true })
                     >
                       {/* @ts-ignore */}
                       <Link href={`/user/${session?.user?.id}`}>
-                        <a className="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 transition">
-                          <AtSignIcon color='black' />
-                          <Text color="black">Profile</Text>
+                        <a className="flex items-center gap-2 px-3 py-2 bg-white hover:bg-gray-50 transition">
+                          <BiUser className="fill-black w-6 h-6" />
+                          <span>Profile</span>
                         </a>
                       </Link>
                       <button
                         onClick={() => signOut()}
-                        className="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 transition"
+                        className="flex items-center gap-2 px-3 py-2 bg-white hover:bg-gray-50 transition"
                       >
-                        <SmallCloseIcon color='black'/>
-                        <Text color="black">Sign out</Text>
+                        <IoLogOutOutline className="fill-black w-6 h-6" />
+                        <span>Sign out</span>
                       </button>
-                    </Box>
+                    </div>
                   </div>
                 )}
               </ClickAwayListener>
             ) : (
               <></>
             )}
-          </HStack>
-        </Flex>
-      </Container>
-    </Box>
-  </Box>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };
 

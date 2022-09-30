@@ -26,7 +26,7 @@ const Search: FC<SearchProps> = ({ videos, accounts }) => {
     <>
       <Meta
         title={`Find '${router.query.q}' on Just B3`}
-        description="TopTop Search"
+        description="Just B3 Search"
         image="/favicon.png"
       />
       <Navbar />

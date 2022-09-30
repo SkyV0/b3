@@ -92,7 +92,7 @@ const VideoSection: FC<VideoSectionProps> = ({ video, refetch, origin }) => {
   };
 
   return (
-    <div key={video.id} className="flex items-start p-2 lg:p-4 gap-10">
+    <div key={video.id} className="flex items-start p-2 lg:p-4 gap-3">
       <Link href={`/user/${video.user.id}`}>
         <a className="flex-shrink-0 rounded-full">
           <Image
@@ -127,7 +127,7 @@ const VideoSection: FC<VideoSectionProps> = ({ video, refetch, origin }) => {
                 className={`py-1 px-3 rounded text-sm mt-2 ${
                   isCurrentlyFollowed ?? video.followedByMe
                     ? "border hover:bg-[#F8F8F8] transition"
-                    : "border border-pink text-pink hover:bg-[#FFF4F5] transition"
+                    : "border border-violet text-violet hover:bg-[#FFF4F5] transition"
                 }`}
               >
                 {isCurrentlyFollowed ?? video.followedByMe
@@ -159,7 +159,7 @@ const VideoSection: FC<VideoSectionProps> = ({ video, refetch, origin }) => {
             >
               <AiFillHeart
                 className={`lg:w-7 lg:h-7 h-5 w-5 ${
-                  isCurrentlyLiked ? "fill-pink" : ""
+                  isCurrentlyLiked ? "fill-violet" : ""
                 }`}
               />
             </button>

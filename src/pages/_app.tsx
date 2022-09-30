@@ -7,9 +7,6 @@ import { SessionProvider } from "next-auth/react";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
 import superjson from "superjson";
-import { ChakraProvider, CSSReset } from "@chakra-ui/react";
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { theme } from "../../src/chakra";
 
 import VolumeContextProvider from "@/context/VolumeContext";
 
@@ -28,10 +25,7 @@ const MyApp: AppType = ({
       <NextNProgress color="#FE2C55" options={{ showSpinner: false }} />
       <SessionProvider session={session}>
         <VolumeContextProvider>
-           <ChakraProvider theme={theme}>
-    <CSSReset />
-            <Component {...pageProps} />
-              </ChakraProvider>
+          <Component {...pageProps} />
         </VolumeContextProvider>
       </SessionProvider>
     </>

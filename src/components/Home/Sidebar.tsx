@@ -8,7 +8,6 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiUserShared2Fill, RiUserShared2Line } from "react-icons/ri";
 
 import { formatAccountName } from "@/utils/text";
-import { Flex } from "@chakra-ui/react";
 
 interface User {
   id: string | null;
@@ -116,8 +115,8 @@ const Sidebar: FC<SidebarProps> = ({
           ))}
         </div>
       )}
-{/* <Flex justifyContent={'bottom'} >
-      <div className="[&_p]:cursor-pointer [&_p:hover]:underline text-xs leading-[1.2] mt-5 text-zinc-400 flex-col items-stretch gap-4 hidden lg:flex">
+
+      {/* <div className="[&_p]:cursor-pointer [&_p:hover]:underline text-xs leading-[1.2] mt-5 text-zinc-400 flex-col items-stretch gap-4 hidden lg:flex">
         <div className="flex flex-wrap gap-2">
           <p>About</p>
           <p>Newsroom</p>
@@ -127,9 +126,11 @@ const Sidebar: FC<SidebarProps> = ({
           <p>ByteDance</p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <p>TikTik for Good</p>
           <p>Advertise</p>
           <p>Developers</p>
           <p>Transparency</p>
+          <p>TikTik Rewards</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <p>Help</p>
@@ -138,10 +139,10 @@ const Sidebar: FC<SidebarProps> = ({
           <p>Privacy</p>
           <p>Creator Portal</p>
           <p>Community Guidelines</p>
-        </div>
+
+        </div> 
         <span>© 2022 Just B3</span>
-        </div>
-            </Flex>*/}
+    </div> */}
     </div>
   );
 };

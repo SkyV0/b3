@@ -10,12 +10,14 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { BsPlay } from "react-icons/bs";
+
 import Navbar from "@/components/Layout/Navbar";
 import Meta from "@/components/Shared/Meta";
 import { prisma } from "@/server/db/client";
 import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
+
 import { authOptions } from "../api/auth/[...nextauth]";
 
 const UserProfile: NextPage<UserProfileProps> = ({ user }) => {

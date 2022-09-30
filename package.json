@@ -1,6 +1,6 @@
 {
   "name": "b3",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,13 +11,6 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@chakra-ui/color-mode": "^2.1.8",
-    "@chakra-ui/icons": "^2.0.10",
-    "@chakra-ui/pro-theme": "^0.0.55",
-    "@chakra-ui/react": "^2.3.4",
-    "@chakra-ui/theme-tools": "^2.0.11",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
     "@fontsource/inter": "^4.5.12",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
