@@ -36,7 +36,7 @@ const Navbar: FC = () => {
         <div className="w-full max-w-[1150px] flex justify-between items-center h-[60px]">
           <Link href="/">
             <a className="flex items-end gap-1">
-              <Image src="/logo.png" alt="Logo" width={30} height={30} />
+              <Image src="/logo.png" alt="Logo" width={50} height={50} className="rounded-md shadow-2xl bg-black" />
               <span className="text-2xl leading-[1] font-bold">Just B3</span>
             </a>
           </Link>
