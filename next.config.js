@@ -1,6 +1,6 @@
 const withAnalyzer = require("@next/bundle-analyzer")({
   enabled:
-    process.env.ANALYZE === "true" && process.env.NODE_ENV !== "development",
+    process.env.ANALYZE === "true" && process.env.NODE_ENV !== "production",
 });
 const { withSuperjson } = require("next-superjson");
 
@@ -13,7 +13,7 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ["lh3.googleusercontent.com", "platform-lookaside.fbsbx.com","https://www.localhost:3000.com"],
+    domains: ["lh3.googleusercontent.com", "platform-lookaside.fbsbx.com"],
     minimumCacheTTL: 9999999,
   },
 };
