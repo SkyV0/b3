@@ -22,7 +22,8 @@ import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
 
-import { authOptions } from "../api/auth/[...nextauth]";
+import { authOptions } from "../auth/[...nextauth]";
+
 
 const Video: NextPage<VideoProps> = ({ video, href, title }) => {
   const session = useSession();
