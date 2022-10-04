@@ -8,13 +8,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
  * The important thing is that the product info is loaded from somewhere trusted
  * so you know the pricing information is accurate.
  */
-import { validateCartItems } from 'use-shopping-cart/src/serverUtil';
-import inventory from '../../../data/products.json';
 
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
-  apiVersion: '2020-03-02',
+  apiVersion: '2022-08-01',
 });
 
 export default async function handler(
@@ -25,7 +23,7 @@ export default async function handler(
     try {
       // Validate the cart details that were sent from the client.
       const cartItems = req.body;
-      const line_items = validateCartItems(inventory, cartItems);
+      const line_items = validateCartItems( cartItems);
       // Create Checkout Sessions from body params.
       const params: Stripe.Checkout.SessionCreateParams = {
         submit_type: 'pay',
@@ -34,7 +32,7 @@ export default async function handler(
         shipping_address_collection: {
           allowed_countries: ['US', 'CA'],
         },
-        line_items,
+        //line_items,
         success_url: `${req.headers.origin}/result?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/use-shopping-cart`,
       };
@@ -44,10 +42,14 @@ export default async function handler(
 
       res.status(200).json(checkoutSession);
     } catch (err) {
-      res.status(500).json({ statusCode: 500, message: err.message });
+      res.status(500).json({ statusCode: 500, message: err });
     }
   } else {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
 }
+function validateCartItems(cartItems: any) {
+  throw new Error('Function not implemented.');
+}
+
