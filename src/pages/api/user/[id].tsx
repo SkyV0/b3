@@ -18,7 +18,7 @@ import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
 
-import { authOptions } from "../api/auth/[...nextauth]";
+import { authOptions } from "../auth/[...nextauth]";
 
 const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
   const session = useSession();

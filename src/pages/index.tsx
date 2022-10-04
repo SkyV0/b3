@@ -5,15 +5,15 @@ import type {
   NextPage,
 } from "next";
 import { unstable_getServerSession as getServerSession } from "next-auth";
+import React from "react";
 import superjson from "superjson";
 
-import Main from "@/components/Home/Main";
-import Sidebar from "@/components/Home/Sidebar";
-import Navbar from "@/components/Layout/Navbar";
-import Meta from "@/components/Shared/Meta";
-import { prisma } from "@/server/db/client";
-import { appRouter } from "@/server/router";
-
+import Main from "../../src/components/Home/Main";
+import Sidebar from "../../src/components/Home/Sidebar";
+import Navbar from "../../src/components/Layout/Navbar";
+import Meta from "../../src/components/Shared/Meta";
+import { prisma } from "../server/db/client";
+import { appRouter } from "../server/router";
 import { authOptions } from "./api/auth/[...nextauth]";
 
 const Home: NextPage<HomeProps> = ({
@@ -124,3 +124,44 @@ export const getServerSideProps = async ({
     },
   };
 };
+
+// import { NextApiRequest, NextApiResponse } from 'next';
+// import Stripe from 'stripe';
+
+// import { CURRENCY, MAX_AMOUNT,MIN_AMOUNT } from '../config';
+// import { formatAmountForStripe } from '../utils/stripe-helpers';
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+//   // https://github.com/stripe/stripe-node#configuration
+//   apiVersion: '2022-08-01',
+// });
+
+// export default async function handler(
+//   req: NextApiRequest,
+//   res: NextApiResponse
+// ) {
+//   if (req.method === 'POST') {
+//     const { amount }: { amount: number } = req.body;
+//     try {
+//       // Validate the amount that was passed from the client.
+//       if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
+//         throw new Error('Invalid amount.');
+//       }
+//       // Create PaymentIntent from body params.
+//       const params: Stripe.PaymentIntentCreateParams = {
+//         payment_method_types: ['card'],
+//         amount: formatAmountForStripe(amount, CURRENCY),
+//         currency: CURRENCY,
+//       };
+//       const payment_intent: Stripe.PaymentIntent = await stripe.paymentIntents.create(
+//         params
+//       );
+
+//       res.status(200).json(payment_intent);
+//     } catch (err) {
+//       res.status(500).json({ statusCode: 500, message: err });
+//     }
+//   } else {
+//     res.setHeader('Allow', 'POST');
+//     res.status(405).end('Method Not Allowed');
+//   }
+// }

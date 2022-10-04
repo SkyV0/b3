@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-
 /*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
  * a local JSON file, but this could also come from an async call to your
@@ -8,7 +7,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
  * The important thing is that the product info is loaded from somewhere trusted
  * so you know the pricing information is accurate.
  */
-
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration

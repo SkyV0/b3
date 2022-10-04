@@ -5,8 +5,9 @@ import { signOut, useSession } from "next-auth/react";
 import { FC, FormEvent, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiSearch, BiUser } from "react-icons/bi";
-import { IoLogOutOutline } from "react-icons/io5";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { IoLogOutOutline } from "react-icons/io5";
+
 import ClickAwayListener from "../Shared/ClickAwayListener";
 
 const Navbar: FC = () => {

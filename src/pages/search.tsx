@@ -6,11 +6,10 @@ import { unstable_getServerSession as getServerSession } from "next-auth";
 import { FC, useState } from "react";
 import { BsPlay } from "react-icons/bs";
 
-import Navbar from "@/components/Layout/Navbar";
-import Meta from "@/components/Shared/Meta";
-import { prisma } from "@/server/db/client";
-import { formatAccountName } from "@/utils/text";
-
+import Navbar from "../../src/components/Layout/Navbar";
+import Meta from "../../src/components/Shared/Meta";
+import { formatAccountName } from "..//utils/text";
+import { prisma } from "../server/db/client";
 import { authOptions } from "./api/auth/[...nextauth]";
 
 enum Tabs {

@@ -7,9 +7,8 @@ import toast from "react-hot-toast";
 import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
-import Navbar from "@/components/Layout/Navbar";
-import Meta from "@/components/Shared/Meta";
-
+import Navbar from "../../src/components/Layout/Navbar";
+import Meta from "../../src/components/Shared/Meta";
 import { authOptions } from "./api/auth/[...nextauth]";
 
 const SignIn: NextPage = () => {
