@@ -3,10 +3,14 @@ export async function fetchGetJSON(url: string) {
     const data = await fetch(url).then((res) => res.json());
     return data;
   } catch (err) {
-    throw new Error(err.message);
+     if (err instanceof Error) {
+      // ✅ TypeScript knows err is Error
+      console.log(err.message);
+    } else {
+      console.log('Unexpected error', err);
+    }
   }
 }
-
 export async function fetchPostJSON(url: string, data?: {}) {
   try {
     // Default options are marked with *
@@ -25,6 +29,12 @@ export async function fetchPostJSON(url: string, data?: {}) {
     });
     return await response.json(); // parses JSON response into native JavaScript objects
   } catch (err) {
-    throw new Error(err.message);
+    if (err instanceof Error) {
+      // ✅ TypeScript knows err is Error
+      console.log(err.message);
+    } else {
+      console.log('Unexpected error', err);
+    }
   }
 }
+  

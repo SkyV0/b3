@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
-  apiVersion: '2020-03-02',
+  apiVersion: '2022-08-01',
 });
 
 const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET!;
@@ -36,8 +36,8 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       );
     } catch (err) {
       // On error, log and return the error message.
-      console.log(`❌ Error message: ${err.message}`);
-      res.status(400).send(`Webhook Error: ${err.message}`);
+      console.log(`❌ Error message: ${err}`);
+      res.status(400).send(`Webhook Error: ${err}`);
       return;
     }
 
