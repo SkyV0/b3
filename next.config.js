@@ -1,6 +1,6 @@
 const withAnalyzer = require("@next/bundle-analyzer")({
   enabled:
-    process.env.ANALYZE === "true" && process.env.NODE_ENV !== "production",
+    process.env.ANALYZE === "true" && process.env.NODE_ENV !== "development",
 });
 const { withSuperjson } = require("next-superjson");
 
