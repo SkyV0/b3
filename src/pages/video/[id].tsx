@@ -16,7 +16,7 @@ import { FaCommentDots, FaTimes } from "react-icons/fa";
 
 import Meta from "@/components/Shared/Meta";
 import { VolumeContext } from "@/context/VolumeContext";
-import { prisma } from "@/server/db/client";
+import { prisma } from "@/server/router/client";
 import { copyToClipboard } from "@/utils/clipboard";
 import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
@@ -110,8 +110,8 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
   return (
     <>
       <Meta
-        title={`${video.user.name} on TopTop`}
-        description="Video | TopTop"
+        title={`${video.user.name} on Just B3`}
+        description="Video | Just B3"
         image={video.coverURL}
       />
 
@@ -410,7 +410,7 @@ export const getServerSideProps = async ({
         href: `${
           req.headers.host?.includes("localhost") ? "http" : "https"
         }://${req.headers.host}/video/${id}`,
-        title: `${video.user.name} on TopTop`,
+        title: `${video.user.name} on Just B3`,
       },
     };
   } catch (error) {

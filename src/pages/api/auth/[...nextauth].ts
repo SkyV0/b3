@@ -3,7 +3,7 @@ import NextAuth, { type NextAuthOptions } from "next-auth";
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 
-import { prisma } from "@/server/db/client";
+import { prisma } from "@/server/router/client";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),

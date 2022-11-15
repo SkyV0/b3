@@ -4,7 +4,7 @@ import { unstable_getServerSession as getServerSession } from "next-auth";
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-import { prisma } from "../db/client";
+import { prisma } from "./client";
 
 export const createContext = async (
   opts?: trpcNext.CreateNextContextOptions

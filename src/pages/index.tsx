@@ -11,8 +11,8 @@ import Main from "@/components/Home/Main";
 import Sidebar from "@/components/Home/Sidebar";
 import Navbar from "@/components/Layout/Navbar";
 import Meta from "@/components/Shared/Meta";
-import { prisma } from "@/server/db/client";
 import { appRouter } from "@/server/router";
+import { prisma } from "@/server/router/client";
 
 import { authOptions } from "./api/auth/[...nextauth]";
 
@@ -24,8 +24,8 @@ const Home: NextPage<HomeProps> = ({
   return (
     <>
       <Meta
-        title="TopTop - Make Your Day"
-        description="TopTop - trends start here"
+        title="Just B3 -"
+        description="Just B3 - B3 loved, B3 known, B3 you"
         image="/favicon.png"
       />
       <Navbar />

@@ -9,7 +9,7 @@ import { BsPlay } from "react-icons/bs";
 
 import Navbar from "@/components/Layout/Navbar";
 import Meta from "@/components/Shared/Meta";
-import { prisma } from "@/server/db/client";
+import { prisma } from "@/server/router/client";
 import { formatAccountName } from "@/utils/text";
 
 import { authOptions } from "./api/auth/[...nextauth]";
@@ -26,8 +26,8 @@ const Search: FC<SearchProps> = ({ videos, accounts }) => {
   return (
     <>
       <Meta
-        title={`Find '${router.query.q}' on Toptop`}
-        description="TopTop Search"
+        title={`Find '${router.query.q}' on Just B3`}
+        description="Just B3 Search"
         image="/favicon.png"
       />
       <Navbar />

@@ -13,7 +13,7 @@ import { BsPlay } from "react-icons/bs";
 
 import Navbar from "@/components/Layout/Navbar";
 import Meta from "@/components/Shared/Meta";
-import { prisma } from "@/server/db/client";
+import { prisma } from "@/server/router/client";
 import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
@@ -44,8 +44,8 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
   return (
     <>
       <Meta
-        title={`${user?.name} (@${formatAccountName(user?.name!)}) | TopTop`}
-        description={`${user?.name} on TopTop`}
+        title={`${user?.name} (@${formatAccountName(user?.name!)}) | Just B3`}
+        description={`${user?.name} on Just B3`}
         image={user?.image!}
       />
 
