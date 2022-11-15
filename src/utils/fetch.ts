@@ -2,6 +2,7 @@ export const fetchWithProgress = (
   method: string,
   url: string,
   body: any,
+  // eslint-disable-next-line no-unused-vars
   cb: (percentage: number) => void
 ): Promise<any> => {
   return new Promise(async (resolve, reject) => {
