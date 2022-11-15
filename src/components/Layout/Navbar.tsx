@@ -68,7 +68,7 @@ const Navbar: FC = () => {
             </Link>
             {status === "unauthenticated" ? (
               <Link href="/sign-in">
-                <a className="rounded h-9 px-6 bg-violet text-white flex items-center hover:brightness-105 transition">
+                <a className="border rounded flex items-center gap-2 h-9 px-3 border-gray-200 bg-white hover:bg-gray-100 transition">
                   Log In
                 </a>
               </Link>
