@@ -7,8 +7,9 @@ import toast from "react-hot-toast";
 import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
-import Navbar from "../../src/components/Layout/Navbar";
-import Meta from "../../src/components/Shared/Meta";
+import Navbar from "@/components/Layout/Navbar";
+import Meta from "@/components/Shared/Meta";
+
 import { authOptions } from "./api/auth/[...nextauth]";
 
 const SignIn: NextPage = () => {
@@ -46,12 +47,12 @@ const SignIn: NextPage = () => {
 
   return (
     <>
-      <Meta title="Log in | Just B3" description="Log in" image="/favicon.png" />
+      <Meta title="Log in | TopTop" description="Log in" image="/favicon.png" />
       <div className="min-h-screen flex flex-col items-stretch">
         <Navbar />
         <div className="flex-grow flex flex-col justify-center items-center gap-3">
           <h1 className="text-3xl text-center font-semibold">
-            Log in to Just B3
+            Log in to TikTok
           </h1>
           <p className="text-center w-[95vw] max-w-[375px] text-sm text-gray-500">
             Manage your account, check notifications, comment on videos, and

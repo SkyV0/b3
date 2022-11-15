@@ -3,7 +3,7 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import { unstable_getServerSession as getServerSession } from "next-auth";
 import { useSession } from "next-auth/react";
@@ -18,7 +18,7 @@ import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
 
-import { authOptions } from "../auth/[...nextauth]";
+import { authOptions } from "../api/auth/[...nextauth]";
 
 const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
   const session = useSession();
@@ -44,8 +44,8 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
   return (
     <>
       <Meta
-        title={`${user?.name} (@${formatAccountName(user?.name!)}) | Just B3`}
-        description={`${user?.name} on Just B3`}
+        title={`${user?.name} (@${formatAccountName(user?.name!)}) | TopTop`}
+        description={`${user?.name} on TopTop`}
         image={user?.image!}
       />
 
@@ -78,7 +78,7 @@ const UserProfile: NextPage<UserProfileProps> = ({ user }) => {
                       className={`py-1 px-3 rounded text-sm mt-2 ${
                         isCurrentlyFollowed ?? user?.followedByMe
                           ? "border hover:bg-[#F8F8F8] transition"
-                          : "border border-violet text-violet hover:bg-[#FFF4F5] transition"
+                          : "border border-pink text-pink hover:bg-[#FFF4F5] transition"
                       }`}
                     >
                       {isCurrentlyFollowed ?? user?.followedByMe

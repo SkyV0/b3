@@ -3,7 +3,7 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { unstable_getServerSession as getServerSession } from "next-auth";
@@ -22,8 +22,7 @@ import { formatNumber } from "@/utils/number";
 import { formatAccountName } from "@/utils/text";
 import { trpc } from "@/utils/trpc";
 
-import { authOptions } from "../auth/[...nextauth]";
-
+import { authOptions } from "../api/auth/[...nextauth]";
 
 const Video: NextPage<VideoProps> = ({ video, href, title }) => {
   const session = useSession();
@@ -111,8 +110,8 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
   return (
     <>
       <Meta
-        title={`${video.user.name} on Just B3`}
-        description="Video | Just B3"
+        title={`${video.user.name} on TopTop`}
+        description="Video | TopTop"
         image={video.coverURL}
       />
 
@@ -183,7 +182,7 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
                     className={`py-1 px-3 rounded text-sm mt-2 ${
                       isCurrentlyFollowed ?? video.followedByMe
                         ? "border hover:bg-[#F8F8F8] transition"
-                        : "border border-violet text-violet hover:bg-[#FFF4F5] transition"
+                        : "border border-pink text-pink hover:bg-[#FFF4F5] transition"
                     }`}
                   >
                     {isCurrentlyFollowed ?? video.followedByMe
@@ -209,7 +208,7 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
                   >
                     <AiFillHeart
                       className={`w-5 h-5 ${
-                        isCurrentlyLiked ? "fill-violet" : ""
+                        isCurrentlyLiked ? "fill-pink" : ""
                       }`}
                     />
                   </button>
@@ -330,7 +329,7 @@ const Video: NextPage<VideoProps> = ({ video, href, title }) => {
               className={`transition ${
                 postCommentMutation.isLoading || !inputValue.trim()
                   ? ""
-                  : "text-violet"
+                  : "text-pink"
               }`}
             >
               {postCommentMutation.isLoading ? "Posting..." : "Post"}
@@ -411,7 +410,7 @@ export const getServerSideProps = async ({
         href: `${
           req.headers.host?.includes("localhost") ? "http" : "https"
         }://${req.headers.host}/video/${id}`,
-        title: `${video.user.name} on Just B3`,
+        title: `${video.user.name} on TopTop`,
       },
     };
   } catch (error) {

@@ -9,7 +9,6 @@ module.exports = {
         "gray-1": "#F1F1F2",
         "gray-2": "#E3E3E4",
         "red-1": "#FE2C55",
-        violet: "#8b5cf6"
       },
     },
   },
